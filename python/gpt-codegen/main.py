@@ -41,7 +41,7 @@ def main():
         # Add new function to prompt
         messages.append({"role": "assistant", "content": new_func})
         messages.append(
-            {"role": "user", "content": "Continue to evolve the generated functions"}
+            {"role": "user", "content": "Continue to improve the generated functions"}
         )
 
 

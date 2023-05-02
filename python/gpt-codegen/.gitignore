@@ -1,3 +1,5 @@
 # ignore results
 
-results/
+results/*
+!results/sample/
+!results/sample/**/*
