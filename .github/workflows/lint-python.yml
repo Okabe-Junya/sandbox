@@ -1,0 +1,30 @@
+name: reviewdog flake8
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - './python/**'
+
+jobs:
+  flake8:
+    name: runner / flake8
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code into the Go module directory
+        uses: actions/checkout@v3
+
+      - name: Set up Python environment
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+
+      - name: Install dependencies
+        run: |
+          pip install flake8 flake8-docstrings flake8-simplify flake8-unused-arguments flake8-quotes
+
+      - name: flake8 Lint
+        uses: reviewdog/action-flake8@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
