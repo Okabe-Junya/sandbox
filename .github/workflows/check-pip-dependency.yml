@@ -10,6 +10,7 @@ jobs:
   pip-check:
     runs-on: ubuntu-latest
     steps:
+
       - name: checkout repo
         uses: actions/checkout@v3
 
@@ -18,8 +19,16 @@ jobs:
         with:
           python-version: 3.11.3
 
-      - name: pip check
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            src:
+              - 'python/gpt-codegen/**'
+
+      # run only if some file in 'src' folder was changed
+      - if: steps.changes.outputs.src == 'true'
         run: |
-          pip install -r requirements.txt
+          pip install -r requirements.txt && pip check
         working-directory: python/gpt-codegen
 
