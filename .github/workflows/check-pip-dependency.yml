@@ -3,20 +3,30 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - "python/gpt-codegen/**"
 
 jobs:
   pip-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+
+      - name: checkout repo
+        uses: actions/checkout@v3
+
       - name: setup python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9.16
-      - name: pip check
+          python-version: 3.11.3
+
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            src:
+              - 'python/gpt-codegen/**'
+
+      # run only if some file in 'src' folder was changed
+      - if: steps.changes.outputs.src == 'true'
         run: |
-          pip install -r requirements.txt
+          pip install -r requirements.txt && pip check
         working-directory: python/gpt-codegen
 
