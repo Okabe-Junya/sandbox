@@ -10,11 +10,14 @@ jobs:
   pip-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: checkout repo
+        uses: actions/checkout@v3
+
       - name: setup python
         uses: actions/setup-python@v2
         with:
           python-version: 3.11.3
+
       - name: pip check
         run: |
           pip install -r requirements.txt
