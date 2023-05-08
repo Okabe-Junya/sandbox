@@ -1,4 +1,4 @@
-name: reviewdog go-lint
+name: reviewdog golangci-lint
 
 on:
   pull_request:
