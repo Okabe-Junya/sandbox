@@ -6,9 +6,9 @@ COPY . .
 
 RUN go get -d -v ./...
 RUN go install -v ./...
-RUN go build -o ./bin/main
+RUN CGO_ENABLED=0 GOOS=linux go build -o ./bin/main
 
 
-FROM gcr.io/distroless/base as runtime
+FROM gcr.io/distroless/static as runtime
 COPY --from=builder /usr/src/app/bin/main /usr/local/bin/main
 CMD ["/usr/local/bin/main"]
