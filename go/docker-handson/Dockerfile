@@ -1,4 +1,4 @@
-FROM golang:1.20.4 AS builder
+FROM golang:1.20.4 as builder
 
 WORKDIR /usr/src/app
 
@@ -9,6 +9,6 @@ RUN go install -v ./...
 RUN go build -o ./bin/main
 
 
-FROM gcr.io/distroless/base AS runtime
+FROM gcr.io/distroless/base as runtime
 COPY --from=builder /usr/src/app/bin/main /usr/local/bin/main
 CMD ["/usr/local/bin/main"]
