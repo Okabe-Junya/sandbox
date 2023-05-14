@@ -1,0 +1,11 @@
+{
+  "name": "ci-dependency",
+  "version": "1.0.0",
+  "description": "dependency ci sandbox",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Junya Okabe",
+  "license": "MIT"
+}
