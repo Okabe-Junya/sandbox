@@ -1,0 +1,58 @@
+name: node
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "node/ci-dependency"
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: node/ci-dependency
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Cache Dependencies
+        uses: actions/cache@v2
+        with:
+          path: node/ci-dependency/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('node/ci-dependency/package-lock.json') }}
+
+  test:
+    needs: setup
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: node/ci-dependency
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+        node: [18]
+        include:
+          - os: ubuntu-latest
+            node: 18
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Tests
+        run: npm test
