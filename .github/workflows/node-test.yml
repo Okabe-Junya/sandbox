@@ -25,7 +25,7 @@ jobs:
         run: npm install
 
       - name: Cache Dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: node/ci-dependency/node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('node/ci-dependency/package-lock.json') }}
@@ -54,6 +54,12 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+
+      - name: Cache Dependencies
+        uses: actions/cache@v3
+        with:
+          path: node/ci-dependency/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('node/ci-dependency/package-lock.json') }}
 
       - name: Run Tests
         run: npm test
