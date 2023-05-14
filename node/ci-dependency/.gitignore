@@ -1,0 +1,24 @@
+# See https://help.github.com/articles/ignoring-files for more about ignoring files.
+
+# Dependencies
+node_modules/
+
+# Build
+npm-debug.log*
+dist/
+
+# Testing
+coverage/
+
+# IDEs and editors
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
