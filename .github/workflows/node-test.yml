@@ -1,9 +1,10 @@
-name: node
+name: node test
 on:
   pull_request:
-    branches: [main]
+    branches:
+      - main
     paths:
-      - "node/ci-dependency"
+      - "node/ci-dependency/**"
 
 jobs:
   setup:
