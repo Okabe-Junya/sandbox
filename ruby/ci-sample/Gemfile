@@ -2,6 +2,8 @@
 
 source "https://rubygems.org"
 
+ruby "3.0.6"
+
 # gem "rails"
 gem "rake"
 
@@ -13,4 +15,23 @@ group :development do
   gem "rubocop-rails", require: false
   gem "rubocop-rake", require: false
   gem "rubocop-sequel", require: false
+end
+
+group :development, :test do
+  gem "byebug"
+  gem "debug", require: false
+  gem "factory_bot_rails"
+  gem "faker"
+  gem "rspec-console", require: false
+  gem "puma"
+  gem "pry", require: false
+  gem "pry-byebug", require: false
+  gem "pry-rails", require: false
+end
+
+group :test do
+  gem "rspec", require: false
+  gem "rspec-rails", require: false
+  gem "rspec-its", require: false
+  gem "rspec-collection_matchers", require: false
 end
