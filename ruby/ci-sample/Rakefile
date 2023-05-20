@@ -1,0 +1,15 @@
+task :hello do
+  puts 'Hello, world!'
+end
+
+task :lint do
+  sh 'bundle exec rubocop'
+end
+
+task :format do
+  sh 'bundle exec rubocop -a'
+end
+
+task :test do
+  sh 'bundle exec rspec'
+end
