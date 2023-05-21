@@ -17,4 +17,7 @@ class Server
   end
 end
 
-Server.new(port: 2000, host: "localhost").run
+def main
+  server = Server.new(port: 2000, host: "localhost")
+  server.run
+end

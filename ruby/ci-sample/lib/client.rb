@@ -14,4 +14,7 @@ class Client
   end
 end
 
-Client.new(port: 2000, host: "localhost").run
+def main
+  client = Client.new(port: 2000, host: "localhost")
+  client.run
+end
