@@ -1,28 +1,17 @@
 require "socket"
 
 class Client
-  def initialize
-    @client = TCPSocket.new("localhost", 2000)
+  def initialize(port:, host:)
+    @port = port
+    @host = host
   end
 
   def run
-    loop do
-      puts "Enter a message to send to the server:"
-      message = gets.chomp
-      if message == "quit"
-        @client.close
-        break
-      else
-        @client.puts message
-        puts @client.gets
-      end
-
-      if @client.closed?
-        puts "Connection closed"
-        break
-      end
-    end
+    puts "Client started"
+    socket = TCPSocket.new(@host, @port)
+    puts socket.gets
+    socket.close
   end
 end
 
-Client.new.run
+Client.new(port: 2000, host: "localhost").run
