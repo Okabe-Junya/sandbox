@@ -10,9 +10,9 @@ class Server
   def run
     puts "Server started"
     loop do
-        client = @server.accept
-        client.puts "Hello Ruby"
-        client.close
+      client = @server.accept
+      client.puts "Hello Ruby"
+      client.close
     end
   end
 end
