@@ -3,6 +3,8 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - python/gpt-codegen
 
 jobs:
   pip-check:
@@ -17,15 +19,7 @@ jobs:
         with:
           python-version: 3.11.3
 
-      - uses: dorny/paths-filter@v2
-        id: changes
-        with:
-          filters: |
-            src:
-              - 'python/gpt-codegen/**'
-
-      # run only if some file in 'src' folder was changed
-      - if: steps.changes.outputs.src == 'true'
+      - name: pip check
         run: |
           pip install -r requirements.txt && pip check
         working-directory: python/gpt-codegen
