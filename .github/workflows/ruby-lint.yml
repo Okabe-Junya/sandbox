@@ -15,6 +15,9 @@ jobs:
   lint:
     name: runner / rubocop
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     defaults:
       run:
         working-directory: ruby
