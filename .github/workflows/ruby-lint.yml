@@ -35,3 +35,4 @@ jobs:
         with:
           reporter: github-pr-review
           workdir: ruby/ci-sample
+          reviewdog_flags: -name="rubocop reviewdog"
