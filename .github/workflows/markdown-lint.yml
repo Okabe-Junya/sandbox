@@ -1,0 +1,22 @@
+name: reviewdog markdownlint
+
+on:
+  pull_request:
+
+jobs:
+  markdownlint:
+    name: runner / markdownlint
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: markdownlint
+        uses: reviewdog/action-markdownlint@v0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
