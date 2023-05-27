@@ -15,6 +15,9 @@ jobs:
   lint:
     name: runner / rubocop
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     defaults:
       run:
         working-directory: ruby
@@ -32,3 +35,4 @@ jobs:
         with:
           reporter: github-pr-review
           workdir: ruby/ci-sample
+          reviewdog_flags: -name="rubocop reviewdog"
