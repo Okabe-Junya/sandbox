@@ -13,3 +13,5 @@ This repository is not a library, so you can't use this repository as a library.
 ## License
 
 This repository is published under MIT License. See [LICENSE](LICENSE) for more details.
+
+hogehoge
