@@ -42,3 +42,18 @@
 
 (multiple-value-bind (a b) (round 5 2)
     (format t "round(5 / 2) = ~d, 余り: ~d~%" a b))
+
+
+; 簡単なユニットテスト
+(assert (= (+ 2 3) 5))
+(assert (= (- 3 2) 1))
+(assert (= (* 2 3) 6))
+(assert (= (/ 4 2) 2))
+(assert (= (rem 5 2) 1))
+
+(assert (= (floor 5 2) 2))
+(assert (= (ceiling 5 2) 3))
+(assert (= (truncate 5 2) 2))
+(assert (= (round 5 2) 2))
+
+(format t "All tests passed~%")
