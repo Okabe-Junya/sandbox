@@ -39,7 +39,7 @@ jobs:
         uses: github/issue-metrics@v2
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SEARCH_QUERY: 'repo:Okabe-Junya/dotfiles is:issue created:${{ env.last_month }} -reason:"not planned"'
+          SEARCH_QUERY: 'repo:github/issue-metrics is:issue created:${{ env.last_month }} -reason:"not planned"'
 
       - name: Copy issue metrics (repo2)
         run: |
