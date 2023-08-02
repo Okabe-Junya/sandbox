@@ -45,9 +45,12 @@ jobs:
         run: |
           cp ./issue_metrics.md ./issue_metrics_repo2.md
 
+      - name: change owner of issue_metrics.md
+        run: |
+          sudo chown runner:runner ./issue_metrics.md
+
       - name: Merge issue metrics
         run: |
-          chmod 700 ./issue_metrics.md
           echo "## repo1" >> ./issue_metrics.md
           cat ./issue_metrics_repo1.md > ./issue_metrics.md
           echo "## repo2" >> ./issue_metrics.md
