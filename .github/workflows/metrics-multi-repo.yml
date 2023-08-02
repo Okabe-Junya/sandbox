@@ -51,6 +51,7 @@ jobs:
 
       - name: Merge issue metrics
         run: |
+          rm ./issue_metrics.md
           echo "## repo1" >> ./issue_metrics.md
           cat ./issue_metrics_repo1.md >> ./issue_metrics.md
           echo "## repo2" >> ./issue_metrics.md
