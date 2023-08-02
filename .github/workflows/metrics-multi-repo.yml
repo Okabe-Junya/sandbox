@@ -31,11 +31,22 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SEARCH_QUERY: 'repo:Okabe-Junya/sandbox is:issue created:${{ env.last_month }} -reason:"not planned"'
 
+      - name: mv issue_metrics.md
+        run: |
+          mv issue_metrics.md issue_metrics_repo1.md
+
       - name: Get issue metrics (repo2)
         uses: github/issue-metrics@v2
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SEARCH_QUERY: 'repo:Okabe-Junya/dotfiles is:issue created:${{ env.last_month }} -reason:"not planned"'
+
+      - name: Merge issue_metrics.md
+        run: |
+          echo "## repo1" > issue_metrics.md
+          cat issue_metrics_repo1.md >> issue_metrics.md
+          echo "## repo2" >> issue_metrics.md
+          cat issue_metrics_repo2.md >> issue_metrics.md
 
       - name: Create issue
         uses: peter-evans/create-issue-from-file@v4
