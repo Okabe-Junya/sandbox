@@ -52,9 +52,10 @@ jobs:
       - name: Merge issue metrics
         run: |
           echo "## repo1" >> ./issue_metrics.md
-          cat ./issue_metrics_repo1.md > ./issue_metrics.md
+          cat ./issue_metrics_repo1.md >> ./issue_metrics.md
           echo "## repo2" >> ./issue_metrics.md
           cat ./issue_metrics_repo2.md >> ./issue_metrics.md
+          sed -i -e 's/# Issue Metrics//g' ./issue_metrics.md
 
       - name: Create issue
         uses: peter-evans/create-issue-from-file@v4
