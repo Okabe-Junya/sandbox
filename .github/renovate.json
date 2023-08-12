@@ -1,6 +1,57 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:base",
+    ":timezone(Asia/Tokyo)",
+    ":prHourlyLimitNone",
+    ":automergePatch"
+  ],
+
+  "schedule": ["after 3am and before 9am every weekday"],
+
+  "labels": ["dependencies", "renovate"],
+
+  "dependencyDashboard": true,
+
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["pin"],
+      "addLabels": ["pin"]
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "addLabels": ["major"]
+    },
+    {
+      "matchUpdateTypes": ["minor"],
+      "addLabels": ["minor"]
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "addLabels": ["patch"],
+      "automerge": true
+    }
+  ],
+
+  "golang": {
+    "commitMessageTopic": "module {{depName}}",
+    "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"]
+  },
+
+  "nodenv": {
+    "fileMatch": ["(^|/)\\.node-version$"],
+    "versioning": "node"
+  },
+
+  "pep621": {
+    "fileMatch": ["(^|/)pyproject\\.toml$"]
+  },
+
+  "regexManagers": [
+    {
+      "fileMatch": [".*y[a]?ml$"],
+      "matchStrings": ["go install (?<depName>[^@]+?)@(?<currentValue>.+)\n"],
+      "datasourceTemplate": "go"
+    }
   ]
 }
