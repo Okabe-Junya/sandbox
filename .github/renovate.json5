@@ -6,7 +6,8 @@
     "config:base",
     ":timezone(Asia/Tokyo)",
     ":prHourlyLimitNone",
-    ":automergePatch"
+    ":automergePatch",
+    ":automergeMinor"
   ],
 
   "schedule": ["after 3am and before 9am every weekday"],
