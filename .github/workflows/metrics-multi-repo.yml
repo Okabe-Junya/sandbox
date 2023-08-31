@@ -29,7 +29,7 @@ jobs:
         uses: github/issue-metrics@v2
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SEARCH_QUERY: 'repo:Okabe-Junya/sandbox OR repo:Okabe-Junya/dotfiles is:issue created:${{ env.last_month }} -reason:"not planned"'
+          SEARCH_QUERY: 'repo:Okabe-Junya/sandbox repo:Okabe-Junya/dotfiles is:issue created:${{ env.last_month }} -reason:"not planned"'
 
       - name: Create issue
         uses: peter-evans/create-issue-from-file@v4
