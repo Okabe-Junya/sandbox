@@ -17,25 +17,17 @@ jobs:
         run: |
           # Calculate the first day of the previous month
           first_day=$(date -d "last month" +%Y-%m-01)
-
           # Calculate the last day of the previous month
           last_day=$(date -d "$first_day +1 month -1 day" +%Y-%m-%d)
-
           #Set an environment variable with the date range
           echo "$first_day..$last_day"
           echo "last_month=$first_day..$last_day" >> "$GITHUB_ENV"
 
-      - name: Get issue metrics (repo1)
+      - name: Get issue metrics repo
         uses: github/issue-metrics@v2
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SEARCH_QUERY: 'repo:Okabe-Junya/sandbox is:issue created:${{ env.last_month }} -reason:"not planned"'
-
-      - name: Get issue metrics (repo2)
-        uses: github/issue-metrics@v2
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SEARCH_QUERY: 'repo:Okabe-Junya/dotfiles is:issue created:${{ env.last_month }} -reason:"not planned"'
+          SEARCH_QUERY: 'repo:Okabe-Junya/sandbox repo:Okabe-Junya/dotfiles is:issue created:${{ env.last_month }} -reason:"not planned"'
 
       - name: Create issue
         uses: peter-evans/create-issue-from-file@v4
@@ -43,4 +35,4 @@ jobs:
           title: Monthly issue metrics report
           token: ${{ secrets.GITHUB_TOKEN }}
           content-filepath: ./issue_metrics.md
-          assignees: <YOUR_GITHUB_HANDLE_HERE>
+          assignees: Okabe-Junya
