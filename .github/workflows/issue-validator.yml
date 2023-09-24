@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Okabe-Junya/issue-validator@v0.2.2
+      - uses: Okabe-Junya/issue-validator@v0.2.3
         with:
           title: '.*:.*'
           is-auto-close: true
