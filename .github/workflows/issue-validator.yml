@@ -14,6 +14,5 @@ jobs:
       - uses: Okabe-Junya/issue-validator@v0.2.4
         with:
           title: '.*:.*'
-          title-regex-flags: 'true'
           is-auto-close: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
