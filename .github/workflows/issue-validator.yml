@@ -13,7 +13,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: Okabe-Junya/issue-validator@v0.2.5
         with:
-          title: '.*:.*'
-          title-regex-flags: true
+          title: 'test'
           is-auto-close: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
