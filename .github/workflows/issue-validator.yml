@@ -14,5 +14,5 @@ jobs:
       - uses: Okabe-Junya/issue-validator@v0.3.1
         with:
           title: 'test'
-          is-auto-close: true
+          is-auto-close: 'true'
           github-token: ${{ secrets.GITHUB_TOKEN }}
