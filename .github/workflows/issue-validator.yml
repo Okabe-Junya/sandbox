@@ -3,8 +3,9 @@ on:
   workflow_dispatch:
   issues:
     types: [opened, edited]
-  pull_request:
-    types: [opened, edited]
+
+permissions:
+  issues: write
 
 jobs:
   validate:
@@ -15,4 +16,5 @@ jobs:
         with:
           title: 'test'
           is-auto-close: 'true'
+          issue-type: 'issue'
           github-token: ${{ secrets.GITHUB_TOKEN }}
