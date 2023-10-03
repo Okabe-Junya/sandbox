@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Okabe-Junya/issue-validator@v0.3.1
+      - uses: Okabe-Junya/issue-validator@v0.3.3
         with:
           title: 'test'
           is-auto-close: 'true'
