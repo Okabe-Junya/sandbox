@@ -5,7 +5,7 @@ description = "Add a short description here"
 authors = [
     { name = "Junya Okabe", email = "okabe.junya.qj@alumni.tsukuba.ac.jp" }
 ]
-dependencies = ["flask~=3.0.0", "black~=24.1.1", "flake8~=7.0.0", "mypy~=1.8.0", "isort~=5.13.0"]
+dependencies = ["flask~=3.0.0", "black~=24.2.0", "flake8~=7.0.0", "mypy~=1.8.0", "isort~=5.13.0"]
 readme = "README.md"
 requires-python = ">= 3.8"
 
