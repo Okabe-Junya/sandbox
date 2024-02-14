@@ -12,9 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Okabe-Junya/issue-validator@v0.3.4
+      - uses: Okabe-Junya/issue-validator@v0.4.0
         with:
-          title: 'test'
-          is-auto-close: 'true'
+          title: '^TEST'
+          title-regex-flags: 'true'
+          is-auto-close: 'false'
           issue-type: 'issue'
           github-token: ${{ secrets.GITHUB_TOKEN }}
