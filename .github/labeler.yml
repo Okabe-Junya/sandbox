@@ -1,0 +1,80 @@
+area/github-management:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/**"
+
+area/documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "docs/*.md"
+          - "docs/*.txt"
+
+area/misc:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "misc/**"
+
+area/c:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "c/**"
+
+area/cpp:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "cpp/**"
+
+area/java:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "java/**"
+
+area/kubernetes:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "k8s/**"
+
+area/lisp:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "lisp/**"
+
+area/node:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "node/**"
+
+area/ocaml:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "ocaml/**"
+
+area/python:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "python/**"
+
+area/ruby:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "ruby/**"
+
+area/rust:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "rust/**"
+
+area/terraform:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "terraform/**"
+
+area/typescript:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "ts/**"
+
+area/utils:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "utils/**"
