@@ -1,62 +1,60 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
 
   // General configuration
-  "extends": [
+  extends: [
     "config:base",
     ":timezone(Asia/Tokyo)",
     ":prHourlyLimitNone",
     ":automergePatch",
-    ":automergeMinor"
+    ":automergeMinor",
   ],
 
-  "schedule": ["after 3am and before 9am every weekday"],
+  schedule: ["after 3am and before 9am every weekday"],
 
-  "labels": ["dependencies", "renovate"],
+  dependencyDashboard: true,
 
-  "dependencyDashboard": true,
-
-  "packageRules": [
+  packageRules: [
     {
-      "matchUpdateTypes": ["pin"],
-      "addLabels": ["pin"]
+      matchUpdateTypes: ["pin"],
+      addLabels: ["renovate:pin"],
     },
     {
-      "matchUpdateTypes": ["major"],
-      "addLabels": ["major"]
+      matchUpdateTypes: ["major"],
+      addLabels: ["renovate:major"],
     },
     {
-      "matchUpdateTypes": ["minor"],
-      "addLabels": ["minor"]
+      matchUpdateTypes: ["minor"],
+      addLabels: ["renovate:minor"],
     },
     {
-      "matchUpdateTypes": ["patch"],
-      "addLabels": ["patch"],
-      "automerge": true
-    }
+      matchUpdateTypes: ["patch"],
+      addLabels: ["renovate:patch"],
+      automerge: true,
+    },
   ],
 
   // Language-specific configuration
-  "golang": {
-    "commitMessageTopic": "module {{depName}}",
-    "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"]
+  golang: {
+    commitMessageTopic: "module {{depName}}",
+    postUpdateOptions: ["gomodTidy", "gomodUpdateImportPaths"],
   },
 
-  "nodenv": {
-    "fileMatch": ["(^|/)\\.node-version$"],
-    "versioning": "node"
+  nodenv: {
+    fileMatch: ["(^|/)\\.node-version$"],
+    versioning: "node",
   },
 
-  "pep621": {
-    "fileMatch": ["(^|/)pyproject\\.toml$"]
+  pep621: {
+    fileMatch: ["(^|/)pyproject\\.toml$"],
   },
 
   // Custom manager configuration
-  "regexManagers": [
+  regexManagers: [
     {
-      "fileMatch": [".*y[a]?ml$"],
-      "matchStrings": ["go install (?<depName>[^@]+?)@(?<currentValue>.+)\n"],
-      "datasourceTemplate": "go"
-    }
-  ]
+      fileMatch: [".*y[a]?ml$"],
+      matchStrings: ["go install (?<depName>[^@]+?)@(?<currentValue>.+)\n"],
+      datasourceTemplate: "go",
+    },
+  ],
 }
