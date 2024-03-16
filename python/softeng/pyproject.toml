@@ -2,7 +2,7 @@
 authors = [
   {name = "Junya Okabe", email = "okabe.junya.qj@alumni.tsukuba.ac.jp"},
 ]
-dependencies = ["black~=24.2.0", "flake8~=7.0.0", "mypy~=1.9.0", "isort~=5.13.0", "pytest~=8.1.0"]
+dependencies = ["black~=24.3.0", "flake8~=7.0.0", "mypy~=1.9.0", "isort~=5.13.0", "pytest~=8.1.0"]
 description = "Add a short description here"
 name = "softeng"
 readme = "README.md"
