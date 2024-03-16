@@ -10,7 +10,7 @@
     ":automergeMinor",
   ],
 
-  schedule: ["after 3am and before 9am every weekday"],
+  "schedule": ["after 3am on monday", "before 6am on monday"],
 
   dependencyDashboard: true,
 
