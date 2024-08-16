@@ -24,4 +24,4 @@ yarn-error.log*
 
 .yarn/
 .pnp.cjs
-.pnp.loaders.mjs
+.pnp.loader.mjs
