@@ -11,4 +11,4 @@ openai==1.51.2
 requests==2.32.3
 tqdm==4.66.5
 urllib3==2.2.3
-yarl==1.15.1
+yarl==1.15.2
