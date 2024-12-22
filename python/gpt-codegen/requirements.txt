@@ -10,5 +10,5 @@ multidict==6.1.0
 openai==1.57.4
 requests==2.32.3
 tqdm==4.67.1
-urllib3==2.2.3
+urllib3==2.3.0
 yarl==1.18.3
